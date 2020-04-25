@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Rimatomics</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Industrialisation</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Normal</success>
+						<operations>
+							<li Class="PatchOperationReplace">
+								<xpath>/Defs/ThingDef[defName="turbineBlade"]/costList/Steel</xpath>
+								<value>
+									<Ind_HighGradeSteel>10</Ind_HighGradeSteel>
+								</value>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>/Defs/ResearchProjectDef[defName="Ind_NuclearPower"]</xpath>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>/Defs/ThingDef[defName="Ind_NuclearPowerPlant"]</xpath>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Concrete (Continued)</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<success>Normal</success>
+			<operations>
+				<li Class="PatchOperationFindMod">
+					<success>Normal</success>
+					<mods>
+						<li>Industrialisation</li>
+					</mods>
+					<match Class="PatchOperationSequence">
+						<success>Normal</success>
+						<operations>
+							<li Class="PatchOperationSetName">
+								<xpath>//costList/Ind_Concrete</xpath>
+								<!-- I know //costList is a terrible, horrible way to do this. -->
+								<!-- But until I can figure out how the hell it's breaking if I do it -->
+								<!-- the right way, I'm going to leave it. -->
+								<name>RFFConcrete</name>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>/Defs/RecipeDef[@ParentName="Ind_MakeConcreteBase"]</xpath>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>/Defs/ResearchProjectDef[defName="Ind_ConcreteProduction"]</xpath>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>/Defs/ThingDef[defName="Ind_ConcreteMixer"]</xpath>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>/Defs/ThingDef[defName="Ind_Concrete"]</xpath>
+							</li>
+							<li Class="PatchOperationRemove">
+								<xpath>/Defs/WorkGiverDef[defName="Ind_DoBillsMixconcrete"]</xpath>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>
